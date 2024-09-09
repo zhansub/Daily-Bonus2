@@ -1,0 +1,52 @@
+name: Daily Bonus
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '15 1,9,18 * * *'
+
+jobs:
+  checkin:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+
+    runs-on: ${{ matrix.os }}
+
+    env:
+      V2EX_COOKIES: ${{ secrets.V2EX_COOKIES }}
+      BILIBILI_COOKIES: ${{ secrets.BILIBILI_COOKIES }}
+      YAMIBO_COOKIES: ${{ secrets.YAMIBO_COOKIES }}
+      YURIFANS_EMAIL: ${{ secrets.YURIFANS_EMAIL }}
+      YURIFANS_PASSWORD: ${{ secrets.YURIFANS_PASSWORD }}
+      PICA_EMAIL: ${{ secrets.PICA_EMAIL }}
+      PICA_PASSWORD: ${{ secrets.PICA_PASSWORD }}
+      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+      TG_USER_ID: ${{ secrets.TG_USER_ID }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set timezone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+
+      - name: Echo current time
+        run: timedatectl
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check-in
+        run: python ./message.py
