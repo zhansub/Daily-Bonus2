@@ -34,7 +34,7 @@ if __name__ == '__main__':
         content_lst.append(f"「Yurifans」\n{yurifans_checkin.main()}")
     if os.environ.get("PICA_EMAIL"):
         content_lst.append(f"「哔咔漫画」\n{pica_checkin.main()}")
-    if os.environ.get("T00ls_username"):
+    if os.environ.get("T00LS_USERNAME"):
         content_lst.append(f"「T00ls」\n{tools_checkin.main()}")
 
     content_lst.append(
