@@ -6,7 +6,7 @@ on:
       - master
   schedule:
     - cron: '15 1,9,18 * * *'
-
+# 1
 jobs:
   checkin:
     strategy:
