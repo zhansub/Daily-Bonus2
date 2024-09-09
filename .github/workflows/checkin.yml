@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '16 1,9,18 * * *'
+    - cron: '15 1,9,18 * * *'
 
 jobs:
   checkin:
@@ -26,7 +26,10 @@ jobs:
       PICA_PASSWORD: ${{ secrets.PICA_PASSWORD }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_USER_ID: ${{ secrets.TG_USER_ID }}
-
+      T00LS_USERNAME: ${{ secrets.T00LS_USERNAME }}
+      T00LS_PASSWORD: ${{ secrets.T00LS_PASSWORD }}
+      T00LS_QUESTIONID: ${{ secrets.T00LS_QUESTIONID }}
+      T00LS_ANSWER: ${{ secrets.T00LS_ANSWER }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4

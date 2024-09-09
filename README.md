@@ -118,6 +118,17 @@ FF14 积分商城使用账号和密码登录
 | PICA_EMAIL    | 邮箱或用户名      |
 | PICA_PASSWORD | 密码          |
 
+### T00ls【新增】
+
+T00ls使用账号和密码登录
+
+| Name                | Description |
+|---------------------|-------------|
+| T00LS_USERNAME      | 用户名         |
+| T00LS_PASSWORD      | 密码          |
+| T00LS_QUESTIONID    | 问题（若有）      |
+| T00LS_ANSWER        | 答案（若有）      |
+
 ## 许可证
 
 [MIT](https://github.com/jckling/Daily-Bonus/blob/master/LICENSE)
